@@ -3,25 +3,31 @@ body {
     overflow: scroll;
     font-family: Comic Sans MS, Comic Sans, cursive	;
     display: flex;
-   /*flex-direction: column;*/
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     margin: 0;
-    background-color: gainsboro;
+    background-color: white;
+}
+
+.title {
+    color: blueviolet;
+    padding: 50px;
+    font-size: 32px;
 }
 
 .holder {
     display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 #grid-container {
     display: grid;
     grid-template-columns: repeat(16, 1fr); /* Adjust the number of columns as needed */
-    grid-gap: 5px; /* Adjust the gap between grid items as needed */
+    grid-gap: 3px; /* Adjust the gap between grid items as needed */
   }
   
   .grid-item {
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     padding-bottom: 100%; /* Set the height based on width using padding hack */
     text-align: center;
     box-sizing: border-box;
