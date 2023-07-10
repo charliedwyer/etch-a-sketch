@@ -1,0 +1,34 @@
+body {
+    height: 100vh;
+    overflow: scroll;
+    font-family: Comic Sans MS, Comic Sans, cursive	;
+    display: flex;
+   /*flex-direction: column;*/
+    margin: 0;
+    background-color: gainsboro;
+}
+
+.holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr); /* Adjust the number of columns as needed */
+    grid-gap: 5px; /* Adjust the gap between grid items as needed */
+  }
+  
+  .grid-item {
+    border: 1px solid #ccc;
+    padding-bottom: 100%; /* Set the height based on width using padding hack */
+    text-align: center;
+    box-sizing: border-box;
+    overflow: hidden; /* Hide any content that exceeds the padding area */
+  }
+
+  .square {
+    width: 35px;
+    height: 35px;
+  }
