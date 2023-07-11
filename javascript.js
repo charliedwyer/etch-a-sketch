@@ -16,7 +16,13 @@ for (let i = 0; i < rows; i++) {
         div.classList.add('grid-item');
         div.classList.add('square');
 
+        div.addEventListener('mouseover', () => {
+            div.classList.add('hover');
+            console.log("HOVERED");
+        });
+
         //append grid to container
         gridContainer.appendChild(div);
     }
 }
+
