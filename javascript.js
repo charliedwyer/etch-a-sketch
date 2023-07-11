@@ -17,7 +17,9 @@ for (let i = 0; i < rows; i++) {
         div.classList.add('square');
 
         div.addEventListener('mouseover', () => {
-            div.classList.add('hover');
+            const randomColor = getRandomColor();
+
+            div.style.backgroundColor = randomColor;
         });
 
         //append grid to container
@@ -31,7 +33,15 @@ resetBtn.addEventListener('click', function() {
     const divs = document.querySelectorAll('div'); //select all divs
 
     divs.forEach((div) => {
-        div.classList.remove('hover');
+        div.style.backgroundColor = "white";     ;
     })
 });
 
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
