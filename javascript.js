@@ -18,11 +18,20 @@ for (let i = 0; i < rows; i++) {
 
         div.addEventListener('mouseover', () => {
             div.classList.add('hover');
-            console.log("HOVERED");
         });
 
         //append grid to container
         gridContainer.appendChild(div);
     }
 }
+
+//resets divs make to default
+const resetBtn = document.querySelector('.reset-button');
+resetBtn.addEventListener('click', function() {
+    const divs = document.querySelectorAll('div'); //select all divs
+
+    divs.forEach((div) => {
+        div.classList.remove('hover');
+    })
+});
 
