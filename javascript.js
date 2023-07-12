@@ -2,11 +2,7 @@
 //select grid container
 const gridContainer = document.getElementById('grid-container');
 
-//define num of rows and columns
-let rows = 16;
-let columns = 16;
-let startSize = 256;
-
+//generates the grid
 function generateGrid (size) {
     for (let i = 0; i < size*size; i++) {
         const div = document.createElement('div');
@@ -20,34 +16,10 @@ function generateGrid (size) {
     }
 }
 
-//generate the grid
-/*function generateGrid (numRows, numCols) {
-    for (let i = 0; i < rows; i++) {
-        for (let j = 0; j < columns; j++) {
-            //create new div element
-            const div = document.createElement('div');
 
-            //customize div
-            div.classList.add('grid-item');
-            div.style.width = `${numRows}px`;
-            div.style.height = `${numCols}px`;
-            /*div.classList.add('square');
+generateGrid(16);
 
-            div.addEventListener('mouseover', () => {
-                const randomColor = getRandomColor();
-
-                div.style.backgroundColor = randomColor;
-            });
-
-            //append grid to container
-            gridContainer.appendChild(div);
-        }
-    }
-}*/
-
-generateGrid(rows);
-
-//resets divs make to default
+//resets divs make to default white color
 const resetBtn = document.querySelector('.reset-button');
 resetBtn.addEventListener('click', function() {
 
@@ -59,6 +31,7 @@ resetBtn.addEventListener('click', function() {
     })
 });
 
+//gets a random color to apply to the square that is being hovered on
 function getRandomColor() {
     const letters = '0123456789ABCDEF';
     let color = '#';
@@ -68,6 +41,7 @@ function getRandomColor() {
     return color;
 }
 
+//clears the grid to generate a new grid
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
@@ -77,28 +51,12 @@ function removeAllChildNodes(parent) {
 const numberSlider = document.querySelector('.number-slider');
 const selectNumber = document.querySelector('.selectedSize');
 
-
+//gets the value from the slider then creates a new grid with the size from the slider
 numberSlider.addEventListener('input', () => {
     let val = numberSlider.value;
     selectNumber.textContent = val;
     removeAllChildNodes(gridContainer);
     gridContainer.setAttribute('style', `grid-template-columns: repeat(${val}, 1fr); grid-template-rows: repeat(${val}, 1fr);`);
     generateGrid(val);
-    
 
-    /*const squareSize = 400 / gridSize - 1;
-    const totalSquares = gridSize * gridSize;
-
-    for (let i = 0; i < totalSquares; i++) {
-        const gridItem = document.createElement('div');
-        gridItem.classList.add('grid-item');
-        gridItem.style.width = `${squareSize}px`;
-        gridItem.style.height = `${squareSize}px`;
-        gridContainer.appendChild(gridItem);
-    }
-    
-    /*gridContainer.style.gridTemplateColumns = `repeat(${gridColumns}, 1fr)`;
-    gridContainer.style.gridTemplateRows = `repeat(${gridRows}, 1fr)`; // Add this line to update the number of rows
-
-    generateGrid(gridSize, gridSize);*/
 });
