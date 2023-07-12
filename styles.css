@@ -12,7 +12,7 @@ body {
 
 .title {
     color: violet;
-    padding: 35px;
+    padding-bottom: 35px;
     font-size: 48px;
 }
 
@@ -21,17 +21,22 @@ body {
 }
 
 #grid-container {
-    display: grid;
-    grid-template-columns: repeat(16, 1fr); /* Adjust the number of columns as needed */
-    grid-gap: 3px; /* Adjust the gap between grid items as needed */
+    display: inline-grid;
+    grid-template-columns: repeat(16, 2fr); /* Adjust the number of columns as needed */
+    grid-template-rows: repeat(16, 2fr);
+    border: 1px solid gray;
+    border-radius: 5px;
+    height: 575px;
+    width: 575px;
+    grid-gap: 0px; /* Adjust the gap between grid items as needed */
   }
   
   .grid-item {
-    border: 2px solid #ccc;
-    padding-bottom: 100%; /* Set the height based on width using padding hack */
-    text-align: center;
-    box-sizing: border-box;
-    overflow: hidden; /* Hide any content that exceeds the padding area */
+    border: 1px solid #ccc;
+    /*padding-bottom: 100%; /* Set the height based on width using padding hack */
+    
+    /*box-sizing: border-box;*/
+    
   }
 
   .square {
@@ -47,10 +52,22 @@ body {
     margin: 20px;
     padding: 10px;
     background-color: #E8E8E8;
-    border-radius: 10%;
+    border-radius: 5%;
   }
 
   img {
     width: 50px;
     height: 50px;
+  }
+
+  .button-container {
+    display: flex;
+  }
+
+  .slider {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
   }
